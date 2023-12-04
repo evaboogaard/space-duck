@@ -1,0 +1,318 @@
+.duck {
+    position: relative;
+    height: 30rem;
+    width: 15rem;
+    top: -3rem;
+    transition: 1s ease-in-out;
+    animation: floating 5s infinite ease-in-out;
+
+    .head {
+        .mask {
+            background-color: var(--suit-primary-color);
+            height: 10rem;
+            aspect-ratio: 1;
+            position: absolute;
+            border-radius: 5rem;
+            left: 2.5rem;
+            z-index: 1500;
+
+            .face-wrapper {
+                background-color: grey;
+                height: 9rem;
+                aspect-ratio: 1;
+                position: absolute;
+                border-radius: 5rem;
+                top: 0.5rem;
+                left: 0.1rem;
+                overflow: hidden;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 2rem;
+                    top: 1.5rem;
+                    left: 1rem;
+                    aspect-ratio: 2/1;
+                    background-color: rgba(255, 255, 255, 0.404);
+                    border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                    animation: mask-glow 5s infinite ease-in-out;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 1rem;
+                    top: 3.2rem;
+                    left: 0.7rem;
+                    aspect-ratio: 2/1;
+                    background-color: rgba(255, 255, 255, 0.404);
+                    border-radius: 56% 44% 49% 51%;
+                    animation: mask-glow 5s infinite ease-in-out;
+                }
+
+                .face {
+                    background-color: white;
+                    height: 9rem;
+                    aspect-ratio: 1/2.2;
+                    position: relative;
+                    top: 3rem;
+                    left: 2.75rem;
+                    border-radius: 10rem;
+
+                    .eye {
+                        background-color: black;
+                        position: absolute;
+                        top: 1.5rem;
+                        width: 0.9rem;
+                        aspect-ratio: 1;
+                        right: 1rem;
+                        border-radius: 50%;
+                        animation: blinking 5s infinite linear;
+
+                        @keyframes blinking {
+                            46% {
+                                transform: scaleY(1);
+                            }
+
+                            50% {
+                                transform: scaleY(0);
+                            }
+
+                            54% {
+                                transform: scaleY(1);
+                            }
+                        }
+
+                        &::before {
+                            content: '';
+                            width: 0.15rem;
+                            background-color: white;
+                            aspect-ratio: 1;
+                            position: absolute;
+                            top: 0.2rem;
+                            left: 0.3rem;
+                            border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                            animation: eye-glow 3s ease-in-out infinite;
+                        }
+
+                        &::after {
+                            content: '';
+                            width: 0.22rem;
+                            background-color: white;
+                            aspect-ratio: 1;
+                            position: absolute;
+                            top: 0.4rem;
+                            left: 0.5rem;
+                            border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                            animation: eye-glow 3s ease-in-out infinite;
+                        }
+
+                        @keyframes eye-glow {
+                            0% {
+                                scale: 1;
+                            }
+
+                            50% {
+                                scale: 1.3;
+                                rotate: 1turn;
+                            }
+
+                            100% {
+                                scale: 1;
+                            }
+                        }
+                    }
+
+                    .beak {
+                        background-color: var(--suit-tertiary-color);
+                        width: 3rem;
+                        aspect-ratio: 2.2/1;
+                        rotate: -10deg;
+                        top: 2.5rem;
+                        left: -1rem;
+                        position: absolute;
+                        border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                    }
+                }
+            }
+        }
+    }
+
+    .body {
+        .stomach {
+            background-color: var(--suit-primary-color);
+            height: 14rem;
+            aspect-ratio: 1/1.2;
+            position: absolute;
+            border-radius: 50%;
+            top: 9rem;
+            left: 1.5rem;
+            z-index: 1000;
+            overflow: hidden;
+            box-shadow: var(--suit-box-shadow);
+
+            &::before {
+                content: '';
+                width: 20rem;
+                height: 2.5rem;
+                background-color: var(--suit-secondary-color);
+                position: absolute;
+                top: 8rem;
+            }
+
+            img {
+                position: absolute;
+                top: 2.3rem;
+                left: 2rem;
+                width: 3rem;
+            }
+        }
+
+        .arm {
+            background-color: var(--suit-primary-color);
+            height: 12rem;
+            aspect-ratio: 1/2.75;
+            position: absolute;
+            top: 10rem;
+            z-index: 200;
+            box-shadow: var(--suit-box-shadow);
+
+            &.one {
+                left: -1rem;
+                rotate: 15deg;
+                border-radius: 10rem 2rem 10rem 2rem;
+                transform-origin: 3.5rem 3.5rem;
+            }
+
+            &.two {
+                right: -1rem;
+                rotate: -15deg;
+                border-radius: 2rem 10rem 2rem 10rem;
+                transform-origin: 1rem 4.5rem;
+            }
+        }
+    }
+
+    .legs {
+        .leg {
+            background-color: var(--suit-primary-color);
+            height: 11rem;
+            aspect-ratio: 1/2.5;
+            position: absolute;
+            bottom: 0;
+            z-index: 100;
+            overflow: hidden;
+            border-radius: 30%;
+            box-shadow: var(--suit-box-shadow);
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: var(--suit-secondary-color);
+                height: 1.75rem;
+                width: 100%;
+                bottom: 2rem;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: var(--suit-tertiary-color);
+                height: 3rem;
+                aspect-ratio: 1/1.5;
+                bottom: 4rem;
+                border-radius: 50%;
+            }
+
+            &.one {
+                left: 2.6rem;
+
+                &::after {
+                    left: -1rem;
+                }
+            }
+
+            &.two {
+                right: 2.6rem;
+
+                &::after {
+                    right: -1rem;
+                }
+            }
+        }
+    }
+
+    &.waving {
+        .body {
+            .arm {
+                &.one {
+                    animation: waving 5s infinite ease-in-out;
+                }
+
+                &.two {
+                }
+            }
+        }
+    }
+}
+
+@keyframes waving {
+    0% {
+        rotate: 0;
+    }
+
+    40% {
+        rotate: 120deg;
+    }
+
+    45% {
+        rotate: 115deg;
+    }
+
+    50% {
+        rotate: 120deg;
+    }
+
+    55% {
+        rotate: 115deg;
+    }
+
+    60% {
+        rotate: 120deg;
+    }
+
+    100% {
+        rotate: 0;
+    }
+}
+
+@keyframes floating {
+    0% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 1rem;
+    }
+
+    100% {
+        translate: 0 0;
+    }
+}
+
+@keyframes mask-glow {
+    0% {
+        translate: -0.4rem 0.5rem;
+        rotate: -50deg;
+    }
+
+    50% {
+        translate: 0;
+        rotate: -40deg;
+    }
+
+    100% {
+        translate: -0.4rem 0.5rem;
+        rotate: -50deg;
+    }
+}

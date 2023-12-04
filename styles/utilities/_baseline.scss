@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --transparent-color: rgba(255, 255, 255, 0);
+    --heading-color: #f0f0f0;
+    --suit-primary-color: #fef4ea;
+    --suit-secondary-color: #ed6a3b;
+    --suit-tertiary-color: #eb9c3d;
+    --suit-box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.25);
+
+    --button-primary-color: rgb(74, 191, 234);
+    --button-secondary-color: rgb(227, 242, 247);
+    --button-tertiary-color: rgb(0, 49, 98);
+
+    --dj-primary-color: rgb(0, 1, 29);
+    --dj-secondary-color: rgb(108, 109, 160);
+    --dj-tertiary-color: rgb(177, 178, 200);
+
+    --speaker-big-color: rgb(65, 66, 87);
+    --speaker-small-color: rgb(34, 35, 61);
+
+    --stars-animation: stars infinite;
+}
+
+body {
+    height: 100vh;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li {
+    font-family: monospace;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#waveform {
+    width: 100%;
+    margin-top: 20px;
+}
