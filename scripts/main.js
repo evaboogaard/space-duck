@@ -89,24 +89,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const blackholeButton = document.querySelector('button.blackhole');
 const blackholeAudio = new Audio('audio/blackhole.mp3');
-
-// Set the loop property to true
+const quackAudio = new Audio('audio/quack.mp3');
 
 let audioTimeout;
+let quackInterval; // Variable to store the interval ID
+let quackCount = 0;
 
 blackholeButton.addEventListener('click', () => {
     bodyEl.classList.toggle('black-hole-state');
 
     if (bodyEl.classList.contains('black-hole-state')) {
+        // Play blackhole audio
         blackholeAudio.play();
-        // Set a timeout to stop the audio after 15 seconds
+
+        // Set interval to play quack audio every 3 seconds
+        quackInterval = setInterval(() => {
+            quackAudio.currentTime = 0;
+            quackAudio.play();
+            quackCount++;
+
+            // Stop playing quack after 3 times
+            if (quackCount >= 3) {
+                clearInterval(quackInterval);
+                quackCount = 0;
+            }
+        }, 3000);
+
+        // Set a timeout to stop both audios after 15 seconds
         audioTimeout = setTimeout(() => {
             blackholeAudio.pause();
-            blackholeAudio.currentTime = 0; // Reset the audio to the beginning
+            blackholeAudio.currentTime = 0; // Reset the blackhole audio to the beginning
+
+            clearInterval(quackInterval);
+            quackCount = 0;
+
+            quackAudio.pause();
+            quackAudio.currentTime = 0; // Reset the quack audio to the beginning
         }, 15000); // 15 seconds in milliseconds
     } else {
         blackholeAudio.pause();
         // Clear the timeout if the black hole state is deactivated before 15 seconds
         clearTimeout(audioTimeout);
+
+        clearInterval(quackInterval);
+        quackCount = 0;
+
+        quackAudio.pause();
+        quackAudio.currentTime = 0; // Reset the quack audio to the beginning
     }
 });
