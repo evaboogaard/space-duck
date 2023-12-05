@@ -1,14 +1,19 @@
 const bodyEl = document.querySelector('body');
 
 document.addEventListener('DOMContentLoaded', function () {
+    const bodyEl = document.querySelector('body');
     const djButton = document.querySelector('button.music');
-    const djAudio = new Audio('audio/interstellar_remix.mp3');
-    const audioBars = document.getElementById('audioBars'); // Assuming you have an element with id 'audioBars'
+    const djAudio = new Audio('audio/music.mp3');
+    const audioBars = document.getElementById('audioBars');
+    const allSpeakers = document.querySelectorAll(
+        '.speaker .big, .speaker .small'
+    );
 
     let audioContext, analyser, bufferLength, dataArray, animationFrameId;
 
     djButton.addEventListener('click', () => {
         bodyEl.classList.toggle('music-state');
+
         if (bodyEl.classList.contains('music-state')) {
             initAudioBars();
             djAudio.play();
@@ -20,7 +25,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function initAudioBars() {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioContext) {
+            audioContext.close().then(() => {
+                audioContext = new (window.AudioContext ||
+                    window.webkitAudioContext)();
+                createAudioAnalyser();
+            });
+        } else {
+            audioContext = new (window.AudioContext ||
+                window.webkitAudioContext)();
+            createAudioAnalyser();
+        }
+    }
+
+    function createAudioAnalyser() {
         analyser = audioContext.createAnalyser();
         const source = audioContext.createMediaElementSource(djAudio);
         source.connect(analyser);
@@ -30,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
         bufferLength = analyser.frequencyBinCount;
         dataArray = new Uint8Array(bufferLength);
 
-        // Create audio bars
-        audioBars.innerHTML = ''; // Clear existing bars
+        audioBars.innerHTML = '';
+
         for (let i = 0; i < bufferLength; i++) {
             const bar = document.createElement('div');
             bar.classList.add('audio-bar');
@@ -43,16 +61,26 @@ document.addEventListener('DOMContentLoaded', function () {
         analyser.getByteFrequencyData(dataArray);
 
         for (let i = 0; i < bufferLength; i++) {
-            const bar = audioBars.children[i];
-            const amplitude = dataArray[i] / 2; // Scale down for better visualization
-            const shade = Math.floor((amplitude / 128) * 128); // Map amplitude to a shade of grey (adjust as needed)
-            const blueComponent = Math.floor((amplitude / 128) * 127); // Map amplitude to a shade of blue (adjust as needed)
+            const amplitude = dataArray[i] / 2;
+            const shade = Math.floor((amplitude / 128) * 128);
+            const redComponent = Math.floor((amplitude / 128) * 127);
 
-            // Set the background color with an RGB value using a mix of grey and blue
-            bar.style.backgroundColor = `rgb(${shade}, ${shade}, ${
-                blueComponent + 128
-            })`;
+            const bar = audioBars.children[i];
+            bar.style.backgroundColor = `rgb(${
+                redComponent + 128
+            }, ${shade}, ${shade})`;
             bar.style.height = amplitude + 'px';
+
+            // Scale the speakers based on the loudness
+            if (i % 4 === 0) {
+                const scaleFactor = 0.5 + (amplitude / 128) * 0.7; // Scale factor between 0.5 and 1.2
+                const speakerIndex = i / 4;
+                const speaker = allSpeakers[speakerIndex];
+
+                if (speaker) {
+                    speaker.style.transform = `scale(${scaleFactor})`;
+                }
+            }
         }
 
         animationFrameId = requestAnimationFrame(animateAudioBars);

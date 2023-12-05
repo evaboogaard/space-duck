@@ -493,7 +493,7 @@ button {
   cursor: pointer;
   position: relative;
   transition: 0.5s ease-out;
-  z-index: 100;
+  z-index: 300;
 }
 button.music:hover {
   background-color: var(--button-secondary-color);
@@ -663,6 +663,7 @@ button.blackhole:hover img {
 .dj-table {
   transform: translateY(30rem);
   transition: 3s ease-out;
+  z-index: 200;
 }
 
 .speaker {
