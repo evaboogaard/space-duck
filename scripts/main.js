@@ -1,6 +1,7 @@
+const bodyEl = document.querySelector('body');
+
 document.addEventListener('DOMContentLoaded', function () {
     const djButton = document.querySelector('button.music');
-    const bodyEl = document.querySelector('body');
     const djAudio = new Audio('audio/interstellar_remix.mp3');
     const audioBars = document.getElementById('audioBars'); // Assuming you have an element with id 'audioBars'
 
@@ -55,5 +56,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         animationFrameId = requestAnimationFrame(animateAudioBars);
+    }
+});
+
+const blackholeButton = document.querySelector('button.blackhole');
+const blackholeAudio = new Audio('audio/blackhole.mp3');
+
+// Set the loop property to true
+
+let audioTimeout;
+
+blackholeButton.addEventListener('click', () => {
+    bodyEl.classList.toggle('black-hole-state');
+
+    if (bodyEl.classList.contains('black-hole-state')) {
+        blackholeAudio.play();
+        // Set a timeout to stop the audio after 15 seconds
+        audioTimeout = setTimeout(() => {
+            blackholeAudio.pause();
+            blackholeAudio.currentTime = 0; // Reset the audio to the beginning
+        }, 15000); // 15 seconds in milliseconds
+    } else {
+        blackholeAudio.pause();
+        // Clear the timeout if the black hole state is deactivated before 15 seconds
+        clearTimeout(audioTimeout);
     }
 });

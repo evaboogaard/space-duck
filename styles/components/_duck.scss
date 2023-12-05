@@ -5,6 +5,7 @@
     top: -3rem;
     transition: 1s ease-in-out;
     animation: floating 5s infinite ease-in-out;
+    z-index: 100;
 
     .head {
         .mask {
@@ -127,11 +128,23 @@
                         background-color: var(--suit-tertiary-color);
                         width: 3rem;
                         aspect-ratio: 2.2/1;
-                        rotate: -10deg;
                         top: 2.5rem;
                         left: -1rem;
                         position: absolute;
                         border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                        transform-origin: right center;
+
+                        &::before {
+                            content: '';
+                            background-color: var(--suit-tertiary-color);
+                            width: 3rem;
+                            aspect-ratio: 2.2/1;
+                            top: -0.1rem;
+                            left: 0rem;
+                            position: absolute;
+                            border-radius: 56% 44% 49% 51% / 39% 27% 73% 61%;
+                            transform-origin: right center;
+                        }
                     }
                 }
             }
@@ -247,9 +260,6 @@
             .arm {
                 &.one {
                     animation: waving 5s infinite ease-in-out;
-                }
-
-                &.two {
                 }
             }
         }

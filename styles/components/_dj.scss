@@ -17,7 +17,28 @@
 }
 
 .music-state {
-    animation: dj-background-color 5s linear infinite;
+    animation: dj-background-color 2s linear infinite;
+
+    .audio-container {
+        position: relative;
+        width: 100%;
+        transform: translateY(4.3rem);
+        transition: 2s ease-out;
+    }
+
+    .audio-bars {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100px;
+        width: 100%;
+        transition: 2s ease-out;
+    }
+
+    .audio-bar {
+        width: 10px;
+        background-color: var(--speaker-big-color);
+    }
 
     .duck {
         scale: 0.8;
@@ -172,45 +193,26 @@
 
 @keyframes dj-background-color {
     0% {
-        background-color: rgb(37, 0, 86);
+        background-color: rgb(11, 0, 86);
     }
 
     32% {
-        background-color: rgb(37, 0, 86);
+        background-color: rgb(11, 0, 86);
     }
 
     33% {
-        background-color: rgb(0, 86, 14);
+        background-color: rgb(11, 4, 57);
     }
 
     65% {
-        background-color: rgb(0, 86, 14);
+        background-color: rgb(11, 4, 57);
     }
 
     66% {
-        background-color: rgb(86, 0, 0);
+        background-color: rgb(0, 33, 86);
     }
 
     100% {
-        background-color: rgb(86, 0, 0);
+        background-color: rgb(0, 33, 86);
     }
-}
-
-.audio-container {
-    position: relative;
-    width: 100%;
-    transform: translateY(4.3rem);
-}
-
-.audio-bars {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 100px;
-    width: 100%;
-}
-
-.audio-bar {
-    width: 10px;
-    background-color: var(--speaker-big-color);
 }

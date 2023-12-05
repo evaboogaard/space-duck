@@ -7,6 +7,7 @@ button {
     cursor: pointer;
     position: relative;
     transition: 0.5s ease-out;
+    z-index: 100;
 
     &.music {
         &:hover {
@@ -49,6 +50,55 @@ button {
                 height: 0.6rem;
                 top: 0.8rem;
                 left: 4.1rem;
+            }
+        }
+    }
+
+    &.blackhole {
+        img {
+            height: 4rem;
+        }
+
+        &::before {
+            content: '';
+            border-radius: 50%;
+            aspect-ratio: 1;
+            width: 5rem;
+            background-color: var(--button-tertiary-color);
+            position: absolute;
+            top: 0.2rem;
+            left: 1.4rem;
+            scale: 0;
+            transition: 0.5s ease-in-out;
+        }
+
+        &:hover {
+            &::before {
+                scale: 2;
+                transition-delay: 1s;
+            }
+
+            img {
+                animation: black-hole-grow 2s forwards;
+            }
+
+            @keyframes black-hole-grow {
+                0% {
+                    scale: 1;
+                }
+
+                50% {
+                    scale: 0.7;
+                }
+
+                60% {
+                    scale: 10;
+                }
+
+                100% {
+                    scale: 10;
+                    rotate: 1turn;
+                }
             }
         }
     }
