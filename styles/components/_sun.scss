@@ -1,0 +1,111 @@
+.sun-container {
+    translate: -30rem -30rem;
+    transition: 2s ease-out;
+}
+
+.sunglasses {
+    position: absolute;
+    width: 7rem;
+    right: 5rem;
+    top: 3.4rem;
+    z-index: 2000;
+    transform: translate(100rem, 20rem) rotate(-720deg);
+    transition: 4s ease-in-out;
+    opacity: 0;
+}
+
+.sun-state {
+    .sunglasses {
+        transform: translate(0) rotate(0);
+        opacity: 1;
+    }
+
+    .duck {
+        scale: 0.6;
+        rotate: 20deg;
+        transform: translateX(10rem);
+    }
+
+    .sun-container {
+        width: 20rem;
+        aspect-ratio: 1;
+        position: relative;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        translate: 20% 0;
+
+        .sun:nth-of-type(1) {
+            background-color: orange;
+            animation: big-blur 3s infinite ease-in-out;
+            box-shadow: 0 0 3rem orangered;
+            width: 20rem;
+            aspect-ratio: 1;
+            position: absolute;
+        }
+
+        .sun:nth-of-type(2) {
+            background-color: orange;
+            animation: small-blur 3s infinite ease-in-out;
+            animation-delay: -1.5s;
+            box-shadow: 0 0 3rem orangered;
+            width: 14rem;
+            aspect-ratio: 1;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .sun:nth-of-type(3) {
+            background-color: rgb(255, 204, 0);
+            animation: small-blur 3s infinite ease-in-out;
+            box-shadow: 0 0 3rem orange;
+            width: 14rem;
+            aspect-ratio: 1;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .sun:nth-of-type(4) {
+            background-color: rgb(255, 237, 164);
+            width: 11rem;
+            aspect-ratio: 1;
+            position: absolute;
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes big-blur {
+    0% {
+        filter: blur(10rem);
+        border-radius: 72% 28% 53% 47% / 47% 63% 37% 53%;
+    }
+
+    50% {
+        filter: blur(15rem);
+        border-radius: 50% 50% 52% 48% / 58% 42% 58% 42%;
+    }
+
+    100% {
+        filter: blur(10rem);
+        border-radius: 72% 28% 53% 47% / 47% 63% 37% 53%;
+    }
+}
+
+@keyframes small-blur {
+    0% {
+        filter: blur(2rem);
+        border-radius: 50% 50% 52% 48% / 58% 42% 58% 42%;
+    }
+
+    50% {
+        filter: blur(4rem);
+        border-radius: 72% 28% 53% 47% / 47% 63% 37% 53%;
+    }
+
+    100% {
+        filter: blur(2rem);
+        border-radius: 50% 50% 52% 48% / 58% 42% 58% 42%;
+    }
+}

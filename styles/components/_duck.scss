@@ -195,6 +195,7 @@
                 rotate: 15deg;
                 border-radius: 10rem 2rem 10rem 2rem;
                 transform-origin: 3.5rem 3.5rem;
+                animation: waving 5s ease-in-out;
             }
 
             &.two {
@@ -250,16 +251,6 @@
 
                 &::after {
                     right: -1rem;
-                }
-            }
-        }
-    }
-
-    &.waving {
-        .body {
-            .arm {
-                &.one {
-                    animation: waving 5s infinite ease-in-out;
                 }
             }
         }

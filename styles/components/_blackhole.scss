@@ -9,6 +9,80 @@
         animation: black-hole-duck 15s;
         animation-fill-mode: forwards;
 
+        .legs {
+            .leg.one {
+                animation: leg-shrink 15s ease-in-out infinite;
+                transform-origin: center top;
+            }
+
+            .leg.two {
+                animation: leg-shrink 15s ease-in-out -2s infinite;
+                transform-origin: center top;
+            }
+
+            @keyframes leg-shrink {
+                0% {
+                    transform: scaleY(1);
+                }
+
+                10% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                20% {
+                    transform: scaleY(1);
+                }
+
+                30% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                40% {
+                    transform: scaleY(1);
+                }
+
+                50% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                55% {
+                    transform: scaleY(1);
+                }
+
+                60% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                65% {
+                    transform: scaleY(1);
+                }
+
+                69% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                73% {
+                    transform: scaleY(1);
+                }
+
+                76% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                78% {
+                    transform: scaleY(1);
+                }
+
+                80% {
+                    transform: scaleY(0.8) rotate(5deg);
+                }
+
+                100% {
+                    transform: scaleY(1);
+                }
+            }
+        }
+
         .head {
             .mask {
                 .face-wrapper {
@@ -78,11 +152,91 @@
                 }
             }
         }
+
+        .body {
+            .arm {
+                &.one {
+                    animation: bh-arm-one 15s ease-in-out;
+                }
+
+                @keyframes bh-arm-one {
+                    0% {
+                        rotate: 15deg;
+                    }
+
+                    10% {
+                        rotate: 30deg;
+                    }
+
+                    20% {
+                        rotate: 15deg;
+                    }
+
+                    30% {
+                        rotate: 30deg;
+                    }
+
+                    40% {
+                        rotate: 15deg;
+                    }
+
+                    50% {
+                        rotate: 40deg;
+                    }
+
+                    60% {
+                        rotate: 15deg;
+                    }
+
+                    70% {
+                        rotate: 120deg;
+                    }
+                }
+
+                &.two {
+                    animation: bh-arm-two 15s ease-in-out;
+                }
+
+                @keyframes bh-arm-two {
+                    0% {
+                        rotate: -15deg;
+                    }
+
+                    10% {
+                        rotate: -30deg;
+                    }
+
+                    20% {
+                        rotate: -15deg;
+                    }
+
+                    30% {
+                        rotate: -30deg;
+                    }
+
+                    40% {
+                        rotate: -15deg;
+                    }
+
+                    50% {
+                        rotate: -40deg;
+                    }
+
+                    60% {
+                        rotate: -15deg;
+                    }
+
+                    70% {
+                        rotate: -120deg;
+                    }
+                }
+            }
+        }
     }
 
     @keyframes black-hole-duck {
         0% {
-            transform: scale(0.8) rotate(0deg);
+            transform: scale(1) rotate(0deg);
             filter: grayscale(0%);
         }
 
@@ -103,12 +257,12 @@
 
         60% {
             transform: scale(0.6);
-            filter: grayscale(0%);
+            filter: grayscale(0%) blur(3px);
         }
 
         70% {
             filter: grayscale(100%);
-            transform: scale(0.6);
+            transform: scale(0.6) blur(3px);
         }
 
         100% {

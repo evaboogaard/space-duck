@@ -273,6 +273,8 @@ li {
   rotate: 15deg;
   border-radius: 10rem 2rem 10rem 2rem;
   transform-origin: 3.5rem 3.5rem;
+  -webkit-animation: waving 5s ease-in-out;
+          animation: waving 5s ease-in-out;
 }
 .duck .body .arm.two {
   right: -1rem;
@@ -319,10 +321,6 @@ li {
 }
 .duck .legs .leg.two::after {
   right: -1rem;
-}
-.duck.waving .body .arm.one {
-  -webkit-animation: waving 5s infinite ease-in-out;
-          animation: waving 5s infinite ease-in-out;
 }
 
 @-webkit-keyframes waving {
@@ -531,6 +529,57 @@ button.music div span:nth-of-type(3) {
   height: 0.6rem;
   top: 0.8rem;
   left: 4.1rem;
+}
+button.sun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+button.sun div {
+  aspect-ratio: 1;
+  width: 3rem;
+  background-color: var(--button-secondary-color);
+  border-radius: 50%;
+  transition: 0.5s ease-out;
+  position: absolute;
+}
+button.sun span {
+  aspect-ratio: 1;
+  width: 3rem;
+  background-color: var(--button-tertiary-color);
+  border-radius: 50%;
+  transition: 0.5s ease-out;
+  position: absolute;
+}
+button.sun:hover div {
+  -webkit-animation: sun-glow 2s infinite ease-in-out;
+          animation: sun-glow 2s infinite ease-in-out;
+}
+@-webkit-keyframes sun-glow {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.3;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes sun-glow {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.3;
+  }
+  100% {
+    scale: 1;
+  }
+}
+button.sun:hover span {
+  scale: 0.7;
 }
 button.blackhole img {
   height: 4rem;
@@ -923,6 +972,110 @@ button.blackhole:hover img {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
+.black-hole-state .duck .legs .leg.one {
+  -webkit-animation: leg-shrink 15s ease-in-out infinite;
+          animation: leg-shrink 15s ease-in-out infinite;
+  transform-origin: center top;
+}
+.black-hole-state .duck .legs .leg.two {
+  -webkit-animation: leg-shrink 15s ease-in-out -2s infinite;
+          animation: leg-shrink 15s ease-in-out -2s infinite;
+  transform-origin: center top;
+}
+@-webkit-keyframes leg-shrink {
+  0% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+  30% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  40% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  55% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  65% {
+    transform: scaleY(1);
+  }
+  69% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  73% {
+    transform: scaleY(1);
+  }
+  76% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  78% {
+    transform: scaleY(1);
+  }
+  80% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes leg-shrink {
+  0% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+  30% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  40% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  55% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  65% {
+    transform: scaleY(1);
+  }
+  69% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  73% {
+    transform: scaleY(1);
+  }
+  76% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  78% {
+    transform: scaleY(1);
+  }
+  80% {
+    transform: scaleY(0.8) rotate(5deg);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
 .black-hole-state .duck .head .mask .face-wrapper .face .eye {
   -webkit-animation: big-eyes 2s ease-out;
           animation: big-eyes 2s ease-out;
@@ -1015,9 +1168,121 @@ button.blackhole:hover img {
     rotate: 0;
   }
 }
+.black-hole-state .duck .body .arm.one {
+  -webkit-animation: bh-arm-one 15s ease-in-out;
+          animation: bh-arm-one 15s ease-in-out;
+}
+@-webkit-keyframes bh-arm-one {
+  0% {
+    rotate: 15deg;
+  }
+  10% {
+    rotate: 30deg;
+  }
+  20% {
+    rotate: 15deg;
+  }
+  30% {
+    rotate: 30deg;
+  }
+  40% {
+    rotate: 15deg;
+  }
+  50% {
+    rotate: 40deg;
+  }
+  60% {
+    rotate: 15deg;
+  }
+  70% {
+    rotate: 120deg;
+  }
+}
+@keyframes bh-arm-one {
+  0% {
+    rotate: 15deg;
+  }
+  10% {
+    rotate: 30deg;
+  }
+  20% {
+    rotate: 15deg;
+  }
+  30% {
+    rotate: 30deg;
+  }
+  40% {
+    rotate: 15deg;
+  }
+  50% {
+    rotate: 40deg;
+  }
+  60% {
+    rotate: 15deg;
+  }
+  70% {
+    rotate: 120deg;
+  }
+}
+.black-hole-state .duck .body .arm.two {
+  -webkit-animation: bh-arm-two 15s ease-in-out;
+          animation: bh-arm-two 15s ease-in-out;
+}
+@-webkit-keyframes bh-arm-two {
+  0% {
+    rotate: -15deg;
+  }
+  10% {
+    rotate: -30deg;
+  }
+  20% {
+    rotate: -15deg;
+  }
+  30% {
+    rotate: -30deg;
+  }
+  40% {
+    rotate: -15deg;
+  }
+  50% {
+    rotate: -40deg;
+  }
+  60% {
+    rotate: -15deg;
+  }
+  70% {
+    rotate: -120deg;
+  }
+}
+@keyframes bh-arm-two {
+  0% {
+    rotate: -15deg;
+  }
+  10% {
+    rotate: -30deg;
+  }
+  20% {
+    rotate: -15deg;
+  }
+  30% {
+    rotate: -30deg;
+  }
+  40% {
+    rotate: -15deg;
+  }
+  50% {
+    rotate: -40deg;
+  }
+  60% {
+    rotate: -15deg;
+  }
+  70% {
+    rotate: -120deg;
+  }
+}
 @-webkit-keyframes black-hole-duck {
   0% {
-    transform: scale(0.8) rotate(0deg);
+    transform: scale(1) rotate(0deg);
     filter: grayscale(0%);
   }
   15% {
@@ -1034,11 +1299,11 @@ button.blackhole:hover img {
   }
   60% {
     transform: scale(0.6);
-    filter: grayscale(0%);
+    filter: grayscale(0%) blur(3px);
   }
   70% {
     filter: grayscale(100%);
-    transform: scale(0.6);
+    transform: scale(0.6) blur(3px);
   }
   100% {
     filter: grayscale(100%);
@@ -1047,7 +1312,7 @@ button.blackhole:hover img {
 }
 @keyframes black-hole-duck {
   0% {
-    transform: scale(0.8) rotate(0deg);
+    transform: scale(1) rotate(0deg);
     filter: grayscale(0%);
   }
   15% {
@@ -1064,11 +1329,11 @@ button.blackhole:hover img {
   }
   60% {
     transform: scale(0.6);
-    filter: grayscale(0%);
+    filter: grayscale(0%) blur(3px);
   }
   70% {
     filter: grayscale(100%);
-    transform: scale(0.6);
+    transform: scale(0.6) blur(3px);
   }
   100% {
     filter: grayscale(100%);
@@ -1526,5 +1791,137 @@ button.blackhole:hover img {
   100% {
     opacity: 1;
     transform: none;
+  }
+}
+
+.sun-container {
+  translate: -30rem -30rem;
+  transition: 2s ease-out;
+}
+
+.sunglasses {
+  position: absolute;
+  width: 7rem;
+  right: 5rem;
+  top: 3.4rem;
+  z-index: 2000;
+  transform: translate(100rem, 20rem) rotate(-720deg);
+  transition: 4s ease-in-out;
+  opacity: 0;
+}
+
+.sun-state .sunglasses {
+  transform: translate(0) rotate(0);
+  opacity: 1;
+}
+.sun-state .duck {
+  scale: 0.6;
+  rotate: 20deg;
+  transform: translateX(10rem);
+}
+.sun-state .sun-container {
+  width: 20rem;
+  aspect-ratio: 1;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  translate: 20% 0;
+}
+.sun-state .sun-container .sun:nth-of-type(1) {
+  background-color: orange;
+  -webkit-animation: big-blur 3s infinite ease-in-out;
+          animation: big-blur 3s infinite ease-in-out;
+  box-shadow: 0 0 3rem orangered;
+  width: 20rem;
+  aspect-ratio: 1;
+  position: absolute;
+}
+.sun-state .sun-container .sun:nth-of-type(2) {
+  background-color: orange;
+  -webkit-animation: small-blur 3s infinite ease-in-out;
+          animation: small-blur 3s infinite ease-in-out;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  box-shadow: 0 0 3rem orangered;
+  width: 14rem;
+  aspect-ratio: 1;
+  position: absolute;
+  border-radius: 50%;
+}
+.sun-state .sun-container .sun:nth-of-type(3) {
+  background-color: rgb(255, 204, 0);
+  -webkit-animation: small-blur 3s infinite ease-in-out;
+          animation: small-blur 3s infinite ease-in-out;
+  box-shadow: 0 0 3rem orange;
+  width: 14rem;
+  aspect-ratio: 1;
+  position: absolute;
+  border-radius: 50%;
+}
+.sun-state .sun-container .sun:nth-of-type(4) {
+  background-color: rgb(255, 237, 164);
+  width: 11rem;
+  aspect-ratio: 1;
+  position: absolute;
+  border-radius: 50%;
+}
+
+@-webkit-keyframes big-blur {
+  0% {
+    filter: blur(10rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+  50% {
+    filter: blur(15rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
+  }
+  100% {
+    filter: blur(10rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+}
+
+@keyframes big-blur {
+  0% {
+    filter: blur(10rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+  50% {
+    filter: blur(15rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
+  }
+  100% {
+    filter: blur(10rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+}
+@-webkit-keyframes small-blur {
+  0% {
+    filter: blur(2rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
+  }
+  50% {
+    filter: blur(4rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+  100% {
+    filter: blur(2rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
+  }
+}
+@keyframes small-blur {
+  0% {
+    filter: blur(2rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
+  }
+  50% {
+    filter: blur(4rem);
+    border-radius: 72% 28% 53% 47%/47% 63% 37% 53%;
+  }
+  100% {
+    filter: blur(2rem);
+    border-radius: 50% 50% 52% 48%/58% 42% 58% 42%;
   }
 }/*# sourceMappingURL=style.css.map */

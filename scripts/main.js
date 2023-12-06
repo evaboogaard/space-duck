@@ -138,3 +138,9 @@ blackholeButton.addEventListener('click', () => {
         quackAudio.currentTime = 0; // Reset the quack audio to the beginning
     }
 });
+
+const sunButton = document.querySelector('button.sun');
+
+sunButton.addEventListener('click', () => {
+    bodyEl.classList.toggle('sun-state');
+});
