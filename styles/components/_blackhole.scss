@@ -4,6 +4,21 @@
     border-radius: 50%;
 }
 
+button.reload-page {
+    position: absolute;
+    width: 10rem;
+    aspect-ratio: 2/1;
+    font-family: monospace;
+    border-radius: 0;
+    left: calc(50% - 5rem);
+    top: calc(50% - 2.5rem);
+    z-index: 5000;
+    opacity: 0;
+    transition: 1s ease-out;
+    transition-delay: 20s;
+    cursor: pointer;
+}
+
 .black-hole-state {
     .duck {
         animation: black-hole-duck 15s;
@@ -12,12 +27,10 @@
         .legs {
             .leg.one {
                 animation: leg-shrink 15s ease-in-out infinite;
-                transform-origin: center top;
             }
 
             .leg.two {
                 animation: leg-shrink 15s ease-in-out -2s infinite;
-                transform-origin: center top;
             }
 
             @keyframes leg-shrink {
@@ -563,5 +576,10 @@
             opacity: 1;
             transform: none;
         }
+    }
+
+    button.reload-page {
+        opacity: 1;
+        animation: none;
     }
 }

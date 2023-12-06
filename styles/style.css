@@ -292,6 +292,9 @@ li {
   overflow: hidden;
   border-radius: 30%;
   box-shadow: var(--suit-box-shadow);
+  transform-origin: center top;
+  -webkit-animation: leg-shrink-idle 5s ease-in-out -2.5s infinite;
+          animation: leg-shrink-idle 5s ease-in-out -2.5s infinite;
 }
 .duck .legs .leg::before {
   content: "";
@@ -321,6 +324,28 @@ li {
 }
 .duck .legs .leg.two::after {
   right: -1rem;
+}
+@-webkit-keyframes leg-shrink-idle {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes leg-shrink-idle {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @-webkit-keyframes waving {
@@ -481,7 +506,7 @@ body {
     rotate: 1turn;
   }
 }
-button {
+button:not(.reload-page) {
   width: 8rem;
   aspect-ratio: 1.5/1;
   background-color: var(--button-primary-color);
@@ -493,24 +518,24 @@ button {
   transition: 0.5s ease-out;
   z-index: 300;
 }
-button.music:hover {
+button:not(.reload-page).music:hover {
   background-color: var(--button-secondary-color);
   border: 3px solid var(--button-primary-color);
 }
-button.music div {
+button:not(.reload-page).music div {
   position: relative;
   width: 8rem;
   aspect-ratio: 1.5/1;
 }
-button.music div:hover {
+button:not(.reload-page).music div:hover {
   -webkit-animation: music-note 2.5s infinite ease-in-out;
           animation: music-note 2.5s infinite ease-in-out;
 }
-button.music div span {
+button:not(.reload-page).music div span {
   position: absolute;
   background-color: var(--button-tertiary-color);
 }
-button.music div span:first-of-type {
+button:not(.reload-page).music div span:first-of-type {
   bottom: 0.5rem;
   width: 1.25rem;
   aspect-ratio: 1/1.3;
@@ -518,25 +543,25 @@ button.music div span:first-of-type {
   rotate: 50deg;
   left: 3rem;
 }
-button.music div span:nth-of-type(2) {
+button:not(.reload-page).music div span:nth-of-type(2) {
   width: 0.2rem;
   height: 2.6rem;
   top: 1rem;
   left: 4.1rem;
 }
-button.music div span:nth-of-type(3) {
+button:not(.reload-page).music div span:nth-of-type(3) {
   width: 1.1rem;
   height: 0.6rem;
   top: 0.8rem;
   left: 4.1rem;
 }
-button.sun {
+button:not(.reload-page).sun {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-button.sun div {
+button:not(.reload-page).sun div {
   aspect-ratio: 1;
   width: 3rem;
   background-color: var(--button-secondary-color);
@@ -544,7 +569,7 @@ button.sun div {
   transition: 0.5s ease-out;
   position: absolute;
 }
-button.sun span {
+button:not(.reload-page).sun span {
   aspect-ratio: 1;
   width: 3rem;
   background-color: var(--button-tertiary-color);
@@ -552,7 +577,7 @@ button.sun span {
   transition: 0.5s ease-out;
   position: absolute;
 }
-button.sun:hover div {
+button:not(.reload-page).sun:hover div {
   -webkit-animation: sun-glow 2s infinite ease-in-out;
           animation: sun-glow 2s infinite ease-in-out;
 }
@@ -578,13 +603,13 @@ button.sun:hover div {
     scale: 1;
   }
 }
-button.sun:hover span {
+button:not(.reload-page).sun:hover span {
   scale: 0.7;
 }
-button.blackhole img {
+button:not(.reload-page).blackhole img {
   height: 4rem;
 }
-button.blackhole::before {
+button:not(.reload-page).blackhole::before {
   content: "";
   border-radius: 50%;
   aspect-ratio: 1;
@@ -596,11 +621,11 @@ button.blackhole::before {
   scale: 0;
   transition: 0.5s ease-in-out;
 }
-button.blackhole:hover::before {
+button:not(.reload-page).blackhole:hover::before {
   scale: 2;
   transition-delay: 1s;
 }
-button.blackhole:hover img {
+button:not(.reload-page).blackhole:hover img {
   -webkit-animation: black-hole-grow 2s forwards;
           animation: black-hole-grow 2s forwards;
 }
@@ -966,6 +991,21 @@ button.blackhole:hover img {
   border-radius: 50%;
 }
 
+button.reload-page {
+  position: absolute;
+  width: 10rem;
+  aspect-ratio: 2/1;
+  font-family: monospace;
+  border-radius: 0;
+  left: calc(50% - 5rem);
+  top: calc(50% - 2.5rem);
+  z-index: 5000;
+  opacity: 0;
+  transition: 1s ease-out;
+  transition-delay: 20s;
+  cursor: pointer;
+}
+
 .black-hole-state .duck {
   -webkit-animation: black-hole-duck 15s;
           animation: black-hole-duck 15s;
@@ -975,12 +1015,10 @@ button.blackhole:hover img {
 .black-hole-state .duck .legs .leg.one {
   -webkit-animation: leg-shrink 15s ease-in-out infinite;
           animation: leg-shrink 15s ease-in-out infinite;
-  transform-origin: center top;
 }
 .black-hole-state .duck .legs .leg.two {
   -webkit-animation: leg-shrink 15s ease-in-out -2s infinite;
           animation: leg-shrink 15s ease-in-out -2s infinite;
-  transform-origin: center top;
 }
 @-webkit-keyframes leg-shrink {
   0% {
@@ -1792,6 +1830,11 @@ button.blackhole:hover img {
     opacity: 1;
     transform: none;
   }
+}
+.black-hole-state button.reload-page {
+  opacity: 1;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .sun-container {

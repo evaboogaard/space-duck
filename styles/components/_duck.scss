@@ -218,6 +218,8 @@
             overflow: hidden;
             border-radius: 30%;
             box-shadow: var(--suit-box-shadow);
+            transform-origin: center top;
+            animation: leg-shrink-idle 5s ease-in-out -2.5s infinite;
 
             &::before {
                 content: '';
@@ -251,6 +253,20 @@
 
                 &::after {
                     right: -1rem;
+                }
+            }
+
+            @keyframes leg-shrink-idle {
+                0% {
+                    transform: scaleY(1);
+                }
+
+                50% {
+                    transform: scaleY(0.95);
+                }
+
+                100% {
+                    transform: scaleY(1);
                 }
             }
         }

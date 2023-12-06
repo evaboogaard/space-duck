@@ -1,4 +1,4 @@
-button {
+button:not(.reload-page) {
     width: 8rem;
     aspect-ratio: 1.5/1;
     background-color: var(--button-primary-color);

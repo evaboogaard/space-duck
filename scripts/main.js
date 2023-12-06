@@ -117,9 +117,6 @@ blackholeButton.addEventListener('click', () => {
 
         // Set a timeout to stop both audios after 15 seconds
         audioTimeout = setTimeout(() => {
-            blackholeAudio.pause();
-            blackholeAudio.currentTime = 0; // Reset the blackhole audio to the beginning
-
             clearInterval(quackInterval);
             quackCount = 0;
 
@@ -127,10 +124,6 @@ blackholeButton.addEventListener('click', () => {
             quackAudio.currentTime = 0; // Reset the quack audio to the beginning
         }, 15000); // 15 seconds in milliseconds
     } else {
-        blackholeAudio.pause();
-        // Clear the timeout if the black hole state is deactivated before 15 seconds
-        clearTimeout(audioTimeout);
-
         clearInterval(quackInterval);
         quackCount = 0;
 
@@ -143,4 +136,10 @@ const sunButton = document.querySelector('button.sun');
 
 sunButton.addEventListener('click', () => {
     bodyEl.classList.toggle('sun-state');
+});
+
+const reloadButton = document.querySelector('button.reload-page');
+
+reloadButton.addEventListener('click', () => {
+    location.reload();
 });
