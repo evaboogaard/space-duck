@@ -24,6 +24,62 @@
         scale: 0.6;
         rotate: 20deg;
         transform: translateX(10rem);
+
+        .body {
+            .arm.one {
+                rotate: 170deg;
+                animation: none;
+            }
+
+            .arm.two {
+                rotate: -160deg;
+            }
+
+            .stomach {
+                img {
+                    translate: -1rem 0;
+                    transform: skew(-15deg);
+                }
+            }
+        }
+
+        .legs {
+            .leg {
+                animation: none;
+            }
+            .leg.one {
+                rotate: -10deg;
+            }
+
+            .leg.two {
+                rotate: 60deg;
+                translate: 1.5rem 1rem;
+                z-index: 4000;
+                animation: leg-tap 8s infinite linear;
+
+                @keyframes leg-tap {
+                    30% {
+                        rotate: 60deg;
+                    }
+
+                    34% {
+                        rotate: 65deg;
+                    }
+
+                    38% {
+                        rotate: 60deg;
+                    }
+
+                    42% {
+                        rotate: 65deg;
+                    }
+
+                    46% {
+                        rotate: 60deg;
+                    }
+                }
+            }
+        }
     }
 
     .sun-container {

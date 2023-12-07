@@ -1,17 +1,33 @@
 const bodyEl = document.querySelector('body');
+const djButton = document.querySelector('button.music');
+const djAudio = new Audio('audio/music.mp3');
+const audioBars = document.getElementById('audioBars');
+const allSpeakers = document.querySelectorAll('.speaker .big, .speaker .small');
+const blackholeButton = document.querySelector('button.blackhole');
+const blackholeAudio = new Audio('audio/blackhole.mp3');
+const quackAudio = new Audio('audio/quack.mp3');
+const sunButton = document.querySelector('button.sun');
+const sunAudio = new Audio('audio/sun.mp3');
+let audioTimeout;
+let quackInterval; // Variable to store the interval ID
+let quackCount = 0;
+
+function resetState() {
+    bodyEl.classList.remove('music-state', 'black-hole-state', 'sun-state');
+    djAudio.pause();
+    blackholeAudio.pause();
+    quackAudio.pause();
+    sunAudio.pause();
+    clearInterval(quackInterval);
+    quackCount = 0;
+    clearTimeout(audioTimeout);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-    const bodyEl = document.querySelector('body');
-    const djButton = document.querySelector('button.music');
-    const djAudio = new Audio('audio/music.mp3');
-    const audioBars = document.getElementById('audioBars');
-    const allSpeakers = document.querySelectorAll(
-        '.speaker .big, .speaker .small'
-    );
-
     let audioContext, analyser, bufferLength, dataArray, animationFrameId;
 
     djButton.addEventListener('click', () => {
+        resetState();
         bodyEl.classList.toggle('music-state');
 
         if (bodyEl.classList.contains('music-state')) {
@@ -87,15 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-const blackholeButton = document.querySelector('button.blackhole');
-const blackholeAudio = new Audio('audio/blackhole.mp3');
-const quackAudio = new Audio('audio/quack.mp3');
-
-let audioTimeout;
-let quackInterval; // Variable to store the interval ID
-let quackCount = 0;
-
 blackholeButton.addEventListener('click', () => {
+    resetState();
     bodyEl.classList.toggle('black-hole-state');
 
     if (bodyEl.classList.contains('black-hole-state')) {
@@ -132,10 +141,10 @@ blackholeButton.addEventListener('click', () => {
     }
 });
 
-const sunButton = document.querySelector('button.sun');
-
 sunButton.addEventListener('click', () => {
+    resetState();
     bodyEl.classList.toggle('sun-state');
+    sunAudio.play();
 });
 
 const reloadButton = document.querySelector('button.reload-page');

@@ -178,6 +178,7 @@
                 top: 2.3rem;
                 left: 2rem;
                 width: 3rem;
+                transition: 1s ease-in-out;
             }
         }
 
@@ -189,6 +190,7 @@
             top: 10rem;
             z-index: 200;
             box-shadow: var(--suit-box-shadow);
+            transition: 2s ease-in-out;
 
             &.one {
                 left: -1rem;
@@ -219,6 +221,7 @@
             border-radius: 30%;
             box-shadow: var(--suit-box-shadow);
             transform-origin: center top;
+            transition: 2s ease-in-out;
             animation: leg-shrink-idle 5s ease-in-out -2.5s infinite;
 
             &::before {
