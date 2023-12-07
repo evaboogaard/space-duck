@@ -143,3 +143,43 @@ const reloadButton = document.querySelector('button.reload-page');
 reloadButton.addEventListener('click', () => {
     location.reload();
 });
+
+// Functie om de loader aan te sturen
+function runLoader() {
+    const loaderElement = document.getElementById('percentage');
+    const totalTime = 10000; // Totaal aantal milliseconden
+    const updateInterval = 100; // Interval om het percentage bij te werken
+
+    let currentTime = 0;
+
+    const updatePercentage = () => {
+        const percentage = Math.min((currentTime / totalTime) * 100, 100);
+        loaderElement.textContent = `${percentage.toFixed(0)}%`;
+    };
+
+    const loaderInterval = setInterval(() => {
+        currentTime += updateInterval;
+
+        if (currentTime <= totalTime) {
+            updatePercentage();
+        } else {
+            clearInterval(loaderInterval);
+        }
+    }, updateInterval);
+}
+
+// Start de loader wanneer het document is geladen
+document.addEventListener('DOMContentLoaded', () => {
+    runLoader();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Wait for the document to be fully loaded
+    setTimeout(function () {
+        // Get the loader element
+        var loader = document.querySelector('.loader');
+
+        // Add a class to hide the loader
+        loader.classList.add('hidden');
+    }, 12000); // 12 seconds in milliseconds
+});

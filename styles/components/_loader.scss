@@ -1,0 +1,161 @@
+.loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 10000;
+    position: absolute;
+    text-align: center;
+
+    .constellation {
+        position: relative;
+        height: 30rem;
+        width: 28rem;
+        scale: 0.8;
+        left: calc(50% - 14rem);
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            animation: blink 1s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+            0% {
+                box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+            }
+
+            50% {
+                box-shadow: 0 0 1rem rgba(255, 255, 255, 0.736);
+            }
+
+            100% {
+                box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+            }
+        }
+
+        .line {
+            position: absolute;
+            background-color: #fff;
+            width: 1px;
+            opacity: 0;
+        }
+
+        .star1 {
+            top: 6rem;
+            left: 0rem;
+        }
+        .star2 {
+            top: 8rem;
+            left: 5rem;
+        }
+        .star3 {
+            top: 12rem;
+            left: 10rem;
+        }
+        .star4 {
+            top: 17rem;
+            left: 14rem;
+        }
+        .star5 {
+            top: 23rem;
+            left: 14rem;
+        }
+        .star6 {
+            top: 25rem;
+            left: 24rem;
+        }
+        .star7 {
+            top: 18rem;
+            left: 27rem;
+        }
+
+        .line1 {
+            top: 2.9rem;
+            left: 5rem;
+            height: 5.3rem;
+            rotate: -67deg;
+            animation: drawLine 5s forwards 1s;
+            transform-origin: bottom left;
+        }
+        .line2 {
+            top: 8.1rem;
+            left: 5rem;
+            height: 6.5rem;
+            rotate: -51deg;
+            animation: drawLine 5s forwards 2s;
+            transform-origin: top right;
+        }
+        .line3 {
+            top: 11.1rem;
+            left: 14rem;
+            height: 6rem;
+            rotate: -39deg;
+            animation: drawLine 5s forwards 3s;
+            transform-origin: bottom left;
+        }
+        .line4 {
+            top: 17.2rem;
+            left: 14rem;
+            height: 13rem;
+            rotate: -86deg;
+            animation: drawLine 5s forwards 5s;
+            transform-origin: top right;
+        }
+        .line5 {
+            top: 17.5rem;
+            left: 14.2rem;
+            height: 5.8rem;
+            rotate: 0deg;
+            animation: drawLine 5s forwards 5s;
+            transform-origin: top right;
+        }
+        .line6 {
+            top: 15rem;
+            left: 24.2rem;
+            height: 10.2rem;
+            rotate: -79deg;
+            animation: drawLine 5s forwards 6s;
+            transform-origin: bottom left;
+        }
+
+        .line7 {
+            top: 17.8rem;
+            left: 24.2rem;
+            height: 7.7rem;
+            rotate: 22deg;
+            animation: drawLine 5s forwards 6s;
+            transform-origin: bottom left;
+        }
+
+        @keyframes drawLine {
+            0% {
+                opacity: 0;
+                transform: scaleY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+    }
+
+    #percentage {
+        font-size: 24px;
+        opacity: 0;
+        color: white;
+        animation: fadein 2s forwards; /* Animation duration: 2 seconds */
+    }
+
+    @keyframes fadein {
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

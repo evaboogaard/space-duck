@@ -69,6 +69,191 @@ li {
   margin-top: 20px;
 }
 
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 10000;
+  position: absolute;
+  text-align: center;
+}
+.loader .constellation {
+  position: relative;
+  height: 30rem;
+  width: 28rem;
+  scale: 0.8;
+  left: calc(50% - 14rem);
+}
+.loader .constellation .star {
+  position: absolute;
+  background-color: #fff;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  -webkit-animation: blink 1s infinite ease-in-out;
+          animation: blink 1s infinite ease-in-out;
+}
+@-webkit-keyframes blink {
+  0% {
+    box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+  }
+  50% {
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.736);
+  }
+  100% {
+    box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+  }
+}
+@keyframes blink {
+  0% {
+    box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+  }
+  50% {
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.736);
+  }
+  100% {
+    box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.341);
+  }
+}
+.loader .constellation .line {
+  position: absolute;
+  background-color: #fff;
+  width: 1px;
+  opacity: 0;
+}
+.loader .constellation .star1 {
+  top: 6rem;
+  left: 0rem;
+}
+.loader .constellation .star2 {
+  top: 8rem;
+  left: 5rem;
+}
+.loader .constellation .star3 {
+  top: 12rem;
+  left: 10rem;
+}
+.loader .constellation .star4 {
+  top: 17rem;
+  left: 14rem;
+}
+.loader .constellation .star5 {
+  top: 23rem;
+  left: 14rem;
+}
+.loader .constellation .star6 {
+  top: 25rem;
+  left: 24rem;
+}
+.loader .constellation .star7 {
+  top: 18rem;
+  left: 27rem;
+}
+.loader .constellation .line1 {
+  top: 2.9rem;
+  left: 5rem;
+  height: 5.3rem;
+  rotate: -67deg;
+  -webkit-animation: drawLine 5s forwards 1s;
+          animation: drawLine 5s forwards 1s;
+  transform-origin: bottom left;
+}
+.loader .constellation .line2 {
+  top: 8.1rem;
+  left: 5rem;
+  height: 6.5rem;
+  rotate: -51deg;
+  -webkit-animation: drawLine 5s forwards 2s;
+          animation: drawLine 5s forwards 2s;
+  transform-origin: top right;
+}
+.loader .constellation .line3 {
+  top: 11.1rem;
+  left: 14rem;
+  height: 6rem;
+  rotate: -39deg;
+  -webkit-animation: drawLine 5s forwards 3s;
+          animation: drawLine 5s forwards 3s;
+  transform-origin: bottom left;
+}
+.loader .constellation .line4 {
+  top: 17.2rem;
+  left: 14rem;
+  height: 13rem;
+  rotate: -86deg;
+  -webkit-animation: drawLine 5s forwards 5s;
+          animation: drawLine 5s forwards 5s;
+  transform-origin: top right;
+}
+.loader .constellation .line5 {
+  top: 17.5rem;
+  left: 14.2rem;
+  height: 5.8rem;
+  rotate: 0deg;
+  -webkit-animation: drawLine 5s forwards 5s;
+          animation: drawLine 5s forwards 5s;
+  transform-origin: top right;
+}
+.loader .constellation .line6 {
+  top: 15rem;
+  left: 24.2rem;
+  height: 10.2rem;
+  rotate: -79deg;
+  -webkit-animation: drawLine 5s forwards 6s;
+          animation: drawLine 5s forwards 6s;
+  transform-origin: bottom left;
+}
+.loader .constellation .line7 {
+  top: 17.8rem;
+  left: 24.2rem;
+  height: 7.7rem;
+  rotate: 22deg;
+  -webkit-animation: drawLine 5s forwards 6s;
+          animation: drawLine 5s forwards 6s;
+  transform-origin: bottom left;
+}
+@-webkit-keyframes drawLine {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+@keyframes drawLine {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+.loader #percentage {
+  font-size: 24px;
+  opacity: 0;
+  color: white;
+  -webkit-animation: fadein 2s forwards;
+          animation: fadein 2s forwards; /* Animation duration: 2 seconds */
+}
+@-webkit-keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 .duck {
   position: relative;
   height: 30rem;
