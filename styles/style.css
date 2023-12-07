@@ -466,8 +466,8 @@ li {
   rotate: 15deg;
   border-radius: 10rem 2rem 10rem 2rem;
   transform-origin: 3.5rem 3.5rem;
-  -webkit-animation: waving 5s ease-in-out;
-          animation: waving 5s ease-in-out;
+  -webkit-animation: waving 5s ease-in-out 13s;
+          animation: waving 5s ease-in-out 13s;
 }
 .duck .body .arm.two {
   right: -1rem;
