@@ -5,6 +5,8 @@
     z-index: 10000;
     position: absolute;
     text-align: center;
+    opacity: 1;
+    transition: 1s ease-out;
 
     .constellation {
         position: relative;
@@ -157,5 +159,9 @@
 }
 
 .hidden {
+    opacity: 0;
+}
+
+.none {
     display: none;
 }

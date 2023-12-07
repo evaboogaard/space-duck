@@ -1,20 +1,21 @@
 button:not(.reload-page) {
     width: 8rem;
-    aspect-ratio: 1.5/1;
+    aspect-ratio: 1/1;
     background-color: var(--button-primary-color);
     border: 3px solid var(--button-secondary-color);
-    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
     cursor: pointer;
     position: relative;
     transition: 0.5s ease-out;
     z-index: 300;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &:hover {
+        background-color: var(--button-secondary-color);
+        border: 3px solid var(--button-primary-color);
+    }
 
     &.music {
-        &:hover {
-            background-color: var(--button-secondary-color);
-            border: 3px solid var(--button-primary-color);
-        }
-
         div {
             position: relative;
             width: 8rem;
@@ -63,7 +64,7 @@ button:not(.reload-page) {
         div {
             aspect-ratio: 1;
             width: 3rem;
-            background-color: var(--button-secondary-color);
+            background-color: var(--button-primary-color);
             border-radius: 50%;
             transition: 0.5s ease-out;
             position: absolute;
@@ -115,7 +116,7 @@ button:not(.reload-page) {
             width: 5rem;
             background-color: var(--button-tertiary-color);
             position: absolute;
-            top: 0.2rem;
+            top: 1rem;
             left: 1.4rem;
             scale: 0;
             transition: 0.5s ease-in-out;
@@ -200,3 +201,23 @@ button:not(.reload-page) {
     bottom: 2rem;
     width: 100%;
 }
+
+.button-wrapper button {
+    transition: transform 0.3s ease-out;
+}
+
+// .button-wrapper button:hover {
+//     transform: scale(0.9);
+// }
+
+// .button-wrapper button.music:hover ~ button {
+//     transform: scale(0.9);
+// }
+
+// .button-wrapper button.sun:hover ~ button {
+//     transform: scale(0.9);
+// }
+
+// .button-wrapper button.blackhole:hover ~ button {
+//     transform: scale(0.9);
+// }

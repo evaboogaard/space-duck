@@ -190,5 +190,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add a class to hide the loader
         loader.classList.add('hidden');
+
+        // Add another timeout to add 'none' class after 1 second (1000 milliseconds)
+        setTimeout(function () {
+            loader.classList.add('none');
+        }, 1000);
     }, 12000); // 12 seconds in milliseconds
+});
+
+const buttons = document.querySelectorAll('.button-wrapper button');
+
+buttons.forEach((button) => {
+    button.addEventListener('mouseover', () => {
+        buttons.forEach((otherButton) => {
+            if (otherButton !== button) {
+                otherButton.style.transform = 'scale(0.8)';
+            }
+        });
+    });
+
+    button.addEventListener('mouseout', () => {
+        buttons.forEach((otherButton) => {
+            if (otherButton !== button) {
+                otherButton.style.transform = 'scale(1)';
+            }
+        });
+    });
 });

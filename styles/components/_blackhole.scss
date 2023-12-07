@@ -270,12 +270,12 @@ button.reload-page {
 
         60% {
             transform: scale(0.6);
-            filter: grayscale(0%) blur(3px);
+            filter: grayscale(0%);
         }
 
         70% {
             filter: grayscale(100%);
-            transform: scale(0.6) blur(3px);
+            transform: scale(0.6);
         }
 
         100% {

@@ -76,6 +76,8 @@ li {
   z-index: 10000;
   position: absolute;
   text-align: center;
+  opacity: 1;
+  transition: 1s ease-out;
 }
 .loader .constellation {
   position: relative;
@@ -251,6 +253,10 @@ li {
 }
 
 .hidden {
+  opacity: 0;
+}
+
+.none {
   display: none;
 }
 
@@ -696,17 +702,17 @@ body {
 }
 button:not(.reload-page) {
   width: 8rem;
-  aspect-ratio: 1.5/1;
+  aspect-ratio: 1/1;
   background-color: var(--button-primary-color);
   border: 3px solid var(--button-secondary-color);
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
-          clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
   cursor: pointer;
   position: relative;
   transition: 0.5s ease-out;
   z-index: 300;
+  border-radius: 50%;
+  overflow: hidden;
 }
-button:not(.reload-page).music:hover {
+button:not(.reload-page):hover {
   background-color: var(--button-secondary-color);
   border: 3px solid var(--button-primary-color);
 }
@@ -752,7 +758,7 @@ button:not(.reload-page).sun {
 button:not(.reload-page).sun div {
   aspect-ratio: 1;
   width: 3rem;
-  background-color: var(--button-secondary-color);
+  background-color: var(--button-primary-color);
   border-radius: 50%;
   transition: 0.5s ease-out;
   position: absolute;
@@ -804,7 +810,7 @@ button:not(.reload-page).blackhole::before {
   width: 5rem;
   background-color: var(--button-tertiary-color);
   position: absolute;
-  top: 0.2rem;
+  top: 1rem;
   left: 1.4rem;
   scale: 0;
   transition: 0.5s ease-in-out;
@@ -920,6 +926,10 @@ button:not(.reload-page).blackhole:hover img {
   position: absolute;
   bottom: 2rem;
   width: 100%;
+}
+
+.button-wrapper button {
+  transition: transform 0.3s ease-out;
 }
 
 .dj-table {
@@ -1525,11 +1535,11 @@ button.reload-page {
   }
   60% {
     transform: scale(0.6);
-    filter: grayscale(0%) blur(3px);
+    filter: grayscale(0%);
   }
   70% {
     filter: grayscale(100%);
-    transform: scale(0.6) blur(3px);
+    transform: scale(0.6);
   }
   100% {
     filter: grayscale(100%);
@@ -1555,11 +1565,11 @@ button.reload-page {
   }
   60% {
     transform: scale(0.6);
-    filter: grayscale(0%) blur(3px);
+    filter: grayscale(0%);
   }
   70% {
     filter: grayscale(100%);
-    transform: scale(0.6) blur(3px);
+    transform: scale(0.6);
   }
   100% {
     filter: grayscale(100%);
